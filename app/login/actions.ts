@@ -11,8 +11,10 @@ export async function loginAction(formData: FormData) {
   const adminPassword = process.env.ADMIN_PASSWORD;
 
   if (!adminUsername || !adminPassword) {
-    redirect("/login?error=Falta+configurar+las+credenciales+del+administrador");
-  }
+  redirect(
+    `/login?error=adminUser:${adminUsername ? "ok" : "missing"}-adminPass:${adminPassword ? "ok" : "missing"}`
+  );
+}
 
   if (username !== adminUsername || password !== adminPassword) {
     redirect("/login?error=Credenciales+incorrectas");
