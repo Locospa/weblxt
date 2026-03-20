@@ -1,5 +1,7 @@
-import Link from "next/link";
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
+import Link from "next/link";
 import { supabase } from "../../lib/supabase";
 import type { Player } from "../../types/player";
 import ModuleHero from "../../components/ModuleHero";
